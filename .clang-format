@@ -1,0 +1,54 @@
+---
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+Language: Cpp
+BasedOnStyle: LLVM
+
+
+UseTab: Never # 使用空格而不是制表符。
+IndentWidth: 4 # 缩进宽度为4个空格。
+TabWidth: 4 # Tab长度
+ColumnLimit: 80 # 单行的长度不超过80字符
+
+# Preprocessor
+IndentPPDirectives: BeforeHash # 嵌套宏缩进风格为‘#’前缩进
+PPIndentWidth: -1 # 嵌套宏的缩进，使用IndentWidth
+
+# Braces
+BreakBeforeBraces: Custom # 使用自定义风格的大括号排列
+BraceWrapping:
+  AfterCaseLabel: false # case语句左大括号不换行
+  AfterEnum: false
+  AfterFunction: true # 函数大括号另起一行
+  AfterStruct: true
+  AfterClass: true
+  AfterUnion: false
+  AfterExternBlock: false # extern 的左大括号不换行
+  BeforeElse: true # else另起一行
+  BeforeWhile: false # do..while中while不另起一行
+  AfterControlStatement: MultiLine # 仅在控制语句有多行判断条件的情况下为左大括号换行
+  SplitEmptyFunction: false
+
+# Control
+AllowShortIfStatementsOnASingleLine: false # 不允许将if控制语句和语句放在同一行
+IndentCaseLabels: true # 对case标签进行额外的缩进。
+BreakBeforeBinaryOperators: NonAssignment # 在除了赋值运算符（如"="、"+="、"-="等）之外的二元运算符(如 &&)之前换行。
+
+# Pointers & qualifiers
+SpaceAroundPointerQualifiers: Both # 保证指针限定符(const)左右都有空格
+PointerAlignment: Right # 指针符靠右
+# QualifierAlignment: Right # 限定符(const)靠右，根据官方文档介绍该操作有风险，不强制规定
+# QualifierOrder: ['static', 'inline', 'type', 'const', 'volatile' ] # 限定符顺序，同上，不强制规定
+
+# Alignments
+AlignConsecutiveMacros: Consecutive # 对齐define宏,不跨空行不跨注释
+AlignConsecutiveBitFields: Consecutive # 对齐位域,不跨空行不跨注释
+AlignConsecutiveAssignments: Consecutive # 对齐赋值,不跨空行不跨注释
+AlignConsecutiveDeclarations: Consecutive # 对齐定义
+AlignEscapedNewlines: Left # 分行符靠左对齐
+
+# Misc
+SortIncludes: Never # 不要排序#include
+BitFieldColonSpacing: None # 位域前没有空格
+AccessModifierOffset: -4
+BreakTemplateDeclarations: Yes
+AlwaysBreakTemplateDeclarations: Yes
